@@ -1,0 +1,18 @@
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install --production
+
+# Copy worker and common source code
+COPY worker ./worker
+COPY common ./common
+
+# Ensure temp directory exists for code execution mounting
+RUN mkdir -p /app/temp
+
+CMD ["npm", "run", "start:worker"]

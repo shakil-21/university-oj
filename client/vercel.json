@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "http://YOUR_VPS_IP_HERE:5000/api/$1"
+    }
+  ]
+}
